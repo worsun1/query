@@ -1,6 +1,5 @@
-# syntax=docker/dockerfile:1
-
-FROM eclipse-temurin:17-jre-alpine AS runtime
+# 使用 Amazon Corretto JDK 镜像
+FROM amazoncorretto:17-alpine-jdk-arm64 AS runtime
 
 ARG JAR_FILE=target/query-0.0.1-SNAPSHOT.jar
 
@@ -8,6 +7,6 @@ WORKDIR /opt/app
 
 COPY ${JAR_FILE} app.jar
 
-EXPOSE 8080 9090
+EXPOSE 8081 9092
 
 ENTRYPOINT ["java", "-jar", "app.jar"]

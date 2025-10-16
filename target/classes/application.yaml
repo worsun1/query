@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: query-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://mysql:3306/query_service?useSSL=false&serverTimezone=UTC}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+
+server:
+  port: ${SERVER_PORT:8082}
+
+dubbo:
+  application:
+    name: demo-provider # 应用名称
+  protocol:
+    name: dubbo # 使用 dubbo 协议
+    port: -1 # 端口号，-1 表示随机选择可用端口
+  registry:
+    address: ${DUBBO_REGISTRY_ADDRESS:zookeeper://zookeeper:2181} # Zookeeper 地址
+    timeout: 10000
+    check: false
+  config-center:
+    address: ${DUBBO_REGISTRY_ADDRESS:zookeeper://zookeeper:2181}
+    check: false
+  metadata-report:
+    address: ${DUBBO_REGISTRY_ADDRESS:zookeeper://zookeeper:2181}
+    check: false
+
+grpc:
+  server:
+    port: ${GRPC_SERVER_PORT:9092}
+
+logging:
+  level:
+    com.example: DEBUG

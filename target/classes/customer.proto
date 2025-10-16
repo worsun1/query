@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.query.grpc";
+option java_outer_classname = "CustomerServiceProto";
+
+package query;
+
+service CustomerService {
+  rpc GetCustomer (GetCustomerRequest) returns (GetCustomerResponse);
+  rpc SearchCustomers (SearchCustomersRequest) returns (SearchCustomersResponse);
+}
+
+message GetCustomerRequest {
+  int64 id = 1;
+}
+
+message SearchCustomersRequest {
+  string name = 1;
+  string email = 2;
+}
+
+message CustomerDto {
+  int64 id = 1;
+  string name = 2;
+  string email = 3;
+  string created_at = 4;
+}
+
+message GetCustomerResponse {
+  CustomerDto customer = 1;
+}
+
+message SearchCustomersResponse {
+  repeated CustomerDto customers = 1;
+}
