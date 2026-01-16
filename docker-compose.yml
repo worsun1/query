@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  query-service:
+    image: query-service:latest
+    container_name: query-service-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/query_service
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    ports:
+      - "8082:8082"
+      - "9092:9092"
