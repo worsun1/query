@@ -1,8 +1,8 @@
 package com.example.query.dubbo.impl;
 
+import com.example.common.api.dubbo.CustomerDubboService;
+import com.example.common.api.dubbo.dto.CustomerDTO;
 import com.example.query.domain.Customer;
-import com.example.query.dubbo.CustomerDubboService;
-import com.example.query.dubbo.dto.CustomerDTO;
 import com.example.query.service.CustomerService;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.BeanUtils;
