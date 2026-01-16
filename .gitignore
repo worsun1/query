@@ -1,0 +1,54 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store
+# 移除所有 target 目录（包括 otlp-server/target）
+#git rm -r --cached target/
+#git rm -r --cached */target/
+# 忽略系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 忽略编辑器配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 忽略日志文件
+*.log
+logs/
+
+# 忽略临时文件
+tmp/
+temp/
+
+# 忽略 node_modules（如果使用 Node.js）
+node_modules/
+
+# 忽略构建输出目录
+dist/
+build/
+out/
+
+# 忽略 Maven 构建输出目录
+target/
+*/target/
+
+
+# 忽略环境配置文件
+.env
+.env.local
+.env.*.local
+
+# 忽略 IDE 特定文件
+*.iml
+*.ipr
+*.iws
