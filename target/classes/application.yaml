@@ -2,7 +2,7 @@ spring:
   application:
     name: query-service
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://mysql:3306/query_service?useSSL=false&serverTimezone=UTC}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3306/query_service?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -24,14 +24,12 @@ dubbo:
     name: dubbo # 使用 dubbo 协议
     port: -1 # 端口号，-1 表示随机选择可用端口
   registry:
-    address: ${DUBBO_REGISTRY_ADDRESS:zookeeper://zookeeper:2181} # Zookeeper 地址
+    address: ${DUBBO_REGISTRY_ADDRESS:nacos://localhost:8848} # Nacos 地址
+    username: ${NACOS_USERNAME:nacos} # Nacos 用户名
+    password: ${NACOS_PASSWORD:nacos} # Nacos 密码
+    namespace: ${NACOS_NAMESPACE:dev} # Nacos 命名空间
+    group: ${NACOS_GROUP:DEVELOP} # Nacos 分组
     timeout: 10000
-    check: false
-  config-center:
-    address: ${DUBBO_REGISTRY_ADDRESS:zookeeper://zookeeper:2181}
-    check: false
-  metadata-report:
-    address: ${DUBBO_REGISTRY_ADDRESS:zookeeper://zookeeper:2181}
     check: false
 
 grpc:
