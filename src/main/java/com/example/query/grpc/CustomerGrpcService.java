@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.logging.Level;
 
 @GrpcService
@@ -43,7 +44,7 @@ public class CustomerGrpcService extends CustomerServiceGrpc.CustomerServiceImpl
     @Override
     public void searchCustomers(SearchCustomersRequest request, StreamObserver<SearchCustomersResponse> responseObserver) {
         logger.info("Searching customers with name: {} and email: {}", request.getName(), request.getEmail());
-        var customers = customerService.searchCustomers(request.getName(), request.getEmail());
+        List<Customer> customers = customerService.searchCustomers(request.getName(), request.getEmail());
         SearchCustomersResponse.Builder builder = SearchCustomersResponse.newBuilder();
         customers.stream().map(this::toDto).forEach(builder::addCustomers);
         responseObserver.onNext(builder.build());

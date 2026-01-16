@@ -4,7 +4,7 @@ import com.example.query.domain.Customer;
 import com.example.query.dto.CustomerResponse;
 import com.example.query.dto.CustomerSearchRequest;
 import com.example.query.service.CustomerService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
