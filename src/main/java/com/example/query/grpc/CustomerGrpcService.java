@@ -1,5 +1,6 @@
 package com.example.query.grpc;
 
+import com.example.common.api.grpc.*;
 import com.example.query.domain.Customer;
 import com.example.query.service.CustomerService;
 import com.example.query.service.CustomerService.CustomerNotFoundException;
@@ -12,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.logging.Level;
 
 @GrpcService
 public class CustomerGrpcService extends CustomerServiceGrpc.CustomerServiceImplBase {
